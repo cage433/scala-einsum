@@ -1,0 +1,19 @@
+# IntelliJ
+.idea_modules/
+.idea/
+*.iml
+target/
+
+# SBT
+.bsp/
+
+# MacOS
+.DS_Store
+
+# https://youtrack.jetbrains.com/issue/JRE-1061
+.attach_pid*
+
+# vim
+/tags
+*.swp
+

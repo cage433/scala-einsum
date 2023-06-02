@@ -1,0 +1,29 @@
+<!-- The logback file used during the running of maker/sbt's own unit tests
+     Quietens the logging somewhat-->
+
+<configuration debug="false">
+
+    <!--
+        Exclude various classes that have verbose, and not very useful, logging
+        during unit tests
+    -->
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <immediateFlush>true</immediateFlush>
+        <encoder>
+            <!--
+                Add the term '%logger' to the pattern below to find the name of any 3rd party loggers
+                you want to exclude
+            -->
+            <pattern>[%date{"yyyy-MM-dd'T'HH:mm:ss,SSSXXX", UTC}] %-5level [%thread] - %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>WARN</level>
+        </filter>
+    </appender>
+
+    <root level="WARN">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+</configuration>
